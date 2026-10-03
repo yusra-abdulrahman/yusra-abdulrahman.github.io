@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dr. Yusra Abdulrahman — Intelligent Inspection for Aerospace</title>
+<meta name="description" content="Research showcase of Dr. Yusra Abdulrahman, Khalifa University: AI-enabled intelligent inspection, non-destructive testing and smart industrial systems.">
+<meta name="theme-color" content="#0b1f3a">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --night:#0b1f3a;      /* navy, cold end of the thermal scale */
+  --violet:#1f5fa8;
+  --crimson:#2f7d6d;
+  --ember:#c98a1e;
+  --glow:#e8b54a;
+  --paper:#eef1f4;      /* cool inspection-report paper */
+  --panel:#ffffff;
+  --ink:#16202b;
+  --muted:#556270;
+  --rule:#d3d9e0;
+  --display:"IBM Plex Sans Condensed","Arial Narrow",Arial,sans-serif;
+  --body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  box-sizing:border-box;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:calc(64px + env(safe-area-inset-top,0px))}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 17px/1.6 var(--body);-webkit-font-smoothing:antialiased}
+img,svg,canvas{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--ember);outline-offset:3px;border-radius:2px}
+.skip{position:absolute;left:-999px;top:0;background:var(--glow);color:var(--night);padding:.6rem 1rem;z-index:50}
+.skip:focus{left:1rem;top:calc(1rem + env(safe-area-inset-top,0px))}
+
+/* ---------- top bar ---------- */
+.bar{position:fixed;top:0;left:0;right:0;z-index:20;padding-top:env(safe-area-inset-top,0px);
+  background:rgba(11,31,58,.86);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:#fff}
+.bar-in{max-width:1180px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:1rem;height:60px;padding:0 1.25rem}
+.brand{font:600 1.05rem/1 var(--display);text-decoration:none;letter-spacing:.01em}
+.brand small{display:block;font:400 .72rem/1.3 var(--body);opacity:.7;margin-top:2px}
+.bar nav{display:flex;gap:1.4rem;overflow-x:auto;scrollbar-width:none}
+.bar nav::-webkit-scrollbar{display:none}
+.bar nav a{text-decoration:none;font-size:.88rem;opacity:.82;white-space:nowrap;padding:.4rem 0}
+.bar nav a:hover{opacity:1;color:var(--glow)}
+@media (max-width:720px){.bar nav{display:none}}
+
+/* ---------- hero: live thermal scan ---------- */
+.hero{position:relative;min-height:100svh;background:var(--night);color:#fff;overflow:hidden;display:flex;align-items:flex-end}
+#scan{position:absolute;inset:0;width:100%;height:100%}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,31,58,0) 30%,rgba(11,31,58,.94) 86%);pointer-events:none}
+.hero-copy{position:relative;z-index:2;max-width:1180px;width:100%;margin:0 auto;padding:calc(96px + env(safe-area-inset-top,0px)) 1.25rem calc(3rem + env(safe-area-inset-bottom,0px))}
+.hero h1{font:700 clamp(2.6rem,min(9vw,11vh),7.2rem)/.92 var(--display);letter-spacing:-.02em;margin:0 0 1.1rem;max-width:12ch}
+.hero .lede{font-size:clamp(1.05rem,2.2vw,1.3rem);max-width:38ch;margin:0 0 1.6rem;opacity:.92}
+.hero .who{font-size:.95rem;opacity:.75;margin:0 0 1.8rem;max-width:60ch}
+.legend{display:flex;align-items:center;gap:.7rem;font-size:.8rem;opacity:.8}
+.legend i{display:block;width:120px;height:8px;border-radius:4px;background:linear-gradient(90deg,#0b1f3a,#1f5fa8,#4f9bd1,#c98a1e,#e8b54a,#fff4d6)}
+.btn{display:inline-block;background:var(--glow);color:var(--night);font-weight:600;text-decoration:none;padding:.8rem 1.25rem;border-radius:6px}
+.btn:hover{background:#fff}
+.hero-actions{display:flex;flex-wrap:wrap;align-items:center;gap:1.4rem;margin-bottom:2.2rem}
+
+/* ---------- layout ---------- */
+.wrap{max-width:1180px;margin:0 auto;padding:0 1.25rem}
+section{padding:5.5rem 0}
+.sec-head{display:grid;grid-template-columns:auto 1fr;gap:0 1.4rem;align-items:baseline;margin-bottom:3rem;border-bottom:2px solid var(--ink);padding-bottom:1.2rem}
+.sec-num{font:700 clamp(3rem,7vw,5.4rem)/.85 var(--display);color:var(--violet)}
+.sec-head h2{font:700 clamp(2rem,4.5vw,3.2rem)/1 var(--display);margin:0;letter-spacing:-.01em}
+.sec-head p{grid-column:2;margin:.5rem 0 0;color:var(--muted);max-width:56ch}
+h3{font:600 clamp(1.45rem,2.6vw,1.9rem)/1.15 var(--display);margin:0 0 .8rem}
+h4{font:600 1.12rem/1.3 var(--body);margin:0 0 .4rem}
+p{max-width:68ch}
+.muted{color:var(--muted)}
+
+/* about */
+.about{background:var(--panel)}
+.about-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:3.5rem}
+.about-grid .big{font-size:clamp(1.25rem,2.4vw,1.6rem);line-height:1.45;margin-top:0;max-width:30ch}
+.facts{list-style:none;margin:0;padding:0;border-top:1px solid var(--rule)}
+.facts li{display:grid;grid-template-columns:9.5rem 1fr;gap:1rem;padding:.85rem 0;border-bottom:1px solid var(--rule);font-size:.97rem}
+.facts b{font-weight:600;color:var(--muted)}
+@media (max-width:860px){.about-grid{grid-template-columns:1fr;gap:2rem}.facts li{grid-template-columns:1fr;gap:.1rem}}
+
+/* feature block */
+.feature{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;margin-bottom:4.5rem}
+.feature.flip>:first-child{order:2}
+@media (max-width:860px){.feature,.feature.flip{grid-template-columns:1fr;gap:1.6rem}.feature.flip>:first-child{order:0}}
+.ticks{margin:1.2rem 0 0;padding:0;list-style:none}
+.ticks li{position:relative;padding:.45rem 0 .45rem 1.6rem;border-top:1px solid var(--rule)}
+.ticks li::before{content:"";position:absolute;left:0;top:1.05rem;width:.7rem;height:.7rem;border-radius:50%;background:radial-gradient(circle,var(--glow),var(--ember) 55%,var(--crimson))}
+
+/* stat strip: a measured readout, kept to the one place it earns */
+.readout{background:var(--night);color:#fff;border-radius:10px;padding:2rem;display:grid;gap:1.6rem}
+.readout .row{display:flex;align-items:baseline;gap:1rem;border-bottom:1px solid rgba(255,255,255,.14);padding-bottom:1.1rem}
+.readout .row:last-child{border:0;padding:0}
+.readout strong{font:700 clamp(2.4rem,5vw,3.4rem)/1 var(--display);color:var(--glow);min-width:4.5ch;white-space:nowrap}
+.readout span{opacity:.85}
+.readout h4{color:#fff;opacity:.7;font-weight:500;font-size:.95rem}
+
+.trio{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+@media (max-width:860px){.trio{grid-template-columns:1fr}}
+.tile{background:var(--panel);border:1px solid var(--rule);border-radius:10px;padding:1.6rem}
+.tile p{margin:.4rem 0 0;font-size:.97rem;color:var(--muted)}
+.tile .tag{display:inline-block;font-size:.8rem;font-weight:600;color:var(--crimson);margin-bottom:.6rem}
+
+/* pipeline */
+.pipe{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin:2rem 0 4.5rem;counter-reset:step}
+.pipe li{list-style:none;position:relative;padding:1.4rem 1.4rem 1.4rem 0;border-top:6px solid var(--violet)}
+.pipe li:nth-child(2){border-color:var(--crimson)}
+.pipe li:nth-child(3){border-color:var(--ember)}
+.pipe li:nth-child(4){border-color:var(--glow)}
+.pipe li::before{counter-increment:step;content:"Step " counter(step);display:block;font-size:.8rem;color:var(--muted);margin-bottom:.3rem}
+.pipe p{font-size:.95rem;color:var(--muted);margin:.2rem 0 0}
+@media (max-width:760px){.pipe{grid-template-columns:1fr 1fr;row-gap:1rem}}
+@media (max-width:440px){.pipe{grid-template-columns:1fr}}
+
+/* timeline */
+.timeline{position:relative;margin:2.5rem 0 4rem;padding:0;list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+.timeline li{background:var(--panel);border:1px solid var(--rule);border-radius:10px;padding:1.6rem;position:relative}
+.timeline .yr{font:700 2.6rem/1 var(--display);margin-bottom:.8rem;background:linear-gradient(90deg,var(--violet),var(--crimson));-webkit-background-clip:text;background-clip:text;color:transparent}
+.timeline li:nth-child(2) .yr{background-image:linear-gradient(90deg,var(--crimson),var(--ember))}
+.timeline li:nth-child(3) .yr{background-image:linear-gradient(90deg,var(--ember),var(--glow))}
+.timeline .state{font-size:.82rem;font-weight:600;color:var(--muted);display:block;margin-bottom:.3rem}
+.timeline p{font-size:.97rem;margin:.3rem 0 0;color:var(--muted)}
+@media (max-width:860px){.timeline{grid-template-columns:1fr}}
+
+/* team */
+.team{background:var(--panel)}
+.people{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1rem;margin-top:1.5rem}
+.person{border-top:3px solid var(--ink);padding:1rem 0}
+.person b{display:block;font-size:1.05rem}
+.person span{font-size:.92rem;color:var(--muted)}
+
+/* outputs */
+.outputs{display:grid;grid-template-columns:repeat(2,1fr);gap:1.4rem}
+@media (max-width:760px){.outputs{grid-template-columns:1fr}}
+.outputs a.tile{text-decoration:none;display:block;transition:border-color .15s}
+.outputs a.tile:hover{border-color:var(--crimson)}
+.outputs a.tile h4::after{content:" ↗";color:var(--crimson)}
+
+/* publication and honours lists */
+.list{list-style:none;margin:0;padding:0;border-top:1px solid var(--rule)}
+.list li{display:grid;grid-template-columns:5.5rem 1fr;gap:1rem;padding:1rem 0;border-bottom:1px solid var(--rule)}
+.list .when{font:600 1.05rem/1.4 var(--display);color:var(--violet)}
+.list p{margin:0;font-size:.97rem}
+.list .venue{color:var(--muted);font-style:italic}
+.list a{color:var(--violet);font-weight:600;text-decoration:none;white-space:nowrap}
+.list a:hover{text-decoration:underline}
+@media (max-width:600px){.list li{grid-template-columns:1fr;gap:.2rem}}
+.sub{margin:3.5rem 0 1.2rem}
+/* roadmap: problem → answer → result */
+.roadmap{display:grid;grid-template-columns:repeat(2,1fr);gap:1.4rem;margin-top:2rem}
+@media (max-width:860px){.roadmap{grid-template-columns:1fr}}
+.paper{background:var(--panel);border:1px solid var(--rule);border-radius:10px;padding:1.7rem;display:flex;flex-direction:column;gap:.9rem}
+.paper .prob{font-size:.92rem;color:var(--muted);margin:0;padding-left:.9rem;border-left:3px solid var(--ember)}
+.paper h4{font:600 1.4rem/1.15 var(--display);margin:0}
+.paper p{margin:0;font-size:.97rem}
+.paper .res{display:flex;flex-wrap:wrap;gap:.5rem 1.4rem;margin-top:auto;padding-top:.9rem;border-top:1px solid var(--rule)}
+.paper .res b{font:700 1.5rem/1 var(--display);color:var(--violet);display:block}
+.paper .res span{font-size:.82rem;color:var(--muted)}
+.paper .links{font-size:.92rem}
+.paper .links a{color:var(--violet);font-weight:600;text-decoration:none;margin-right:1rem}
+.paper .links a:hover{text-decoration:underline}
+.anchor{display:grid;grid-template-columns:1fr 1.3fr;gap:2.5rem;align-items:center;background:var(--night);color:#fff;border-radius:12px;padding:2.4rem}
+.anchor h3{color:#fff}
+.anchor p{opacity:.88;margin:.5rem 0 0}
+.anchor .big{font:700 clamp(3rem,7vw,4.8rem)/1 var(--display);color:var(--glow)}
+@media (max-width:760px){.anchor{grid-template-columns:1fr;gap:1.2rem;padding:1.8rem}}
+.people h4{margin:2rem 0 .2rem;font-size:1rem;color:var(--muted);font-weight:600;grid-column:1/-1}
+/* footer */
+footer{background:var(--night);color:#fff;padding:4rem 0 calc(2.5rem + env(safe-area-inset-bottom,0px))}
+footer h2{font:700 clamp(2rem,5vw,3.4rem)/1 var(--display);margin:0 0 1rem;max-width:16ch}
+footer a{color:var(--glow)}
+.foot-row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;margin-top:3rem;padding-top:1.4rem;border-top:1px solid rgba(255,255,255,.18);font-size:.88rem;opacity:.75}
+</style>
+</head>
+<body>
+<a class="skip" href="#research">Skip to research</a>
+
+<header class="bar">
+  <div class="bar-in">
+    <a class="brand" href="#home">Yusra Abdulrahman<small>Transformative Aerospace Lab · Khalifa University</small></a>
+    <nav aria-label="Sections">
+      <a href="#research">Research</a>
+      <a href="#industry">Industry</a>
+      <a href="#teaching">Teaching</a>
+      <a href="#next">What's next</a>
+      <a href="#outputs">Publications</a>
+      <a href="#team">Team</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<!-- HERO -->
+<section class="hero" id="home" aria-label="Introduction" style="padding:0">
+  <canvas id="scan" aria-hidden="true"></canvas>
+  <div class="hero-copy">
+    <h1>Seeing inside aircraft structures</h1>
+    <p class="lede">AI, robotics and infrared thermography that find hidden damage in aerospace parts, and keep a record regulators can trust.</p>
+    <div class="hero-actions">
+      <a class="btn" href="#research">See the work</a>
+      <div class="legend" role="img" aria-label="Thermal colour scale from cold to hot"><span>Cold</span><i></i><span>Hot</span></div>
+    </div>
+    <p class="who">Dr. Yusra Abdulrahman, Assistant Professor of Aerospace Engineering and Deputy Director of the Advanced Research and Innovation Center (ARIC), Khalifa University</p>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="wrap about-grid">
+    <div>
+      <p class="big">My group takes AI inspection out of the lab and into aircraft manufacturing and maintenance, from the camera to the robot to the certified record.</p>
+      <p class="muted">The work runs across four connected threads: AI-enabled visual inspection, non-destructive testing with infrared thermography, robotic and smart industrial systems, and blockchain-based traceability for inspection data. Partners include Sanad Aerotech, COMAC, SILAL and Beijing Institute of Technology, and the same methods now reach into precision agriculture.</p>
+      <p class="muted">Our publications are cited 92% above the world average for the field (SciVal, 2022–2025), and the 2023 review that set our roadmap ranks in the top 1% worldwide by field-weighted citation impact.</p>
+    </div>
+    <ul class="facts">
+      <li><b>Position</b><span>Assistant Professor, Aerospace Engineering, Khalifa University, with a dual affiliation in Management Science and Engineering</span></li>
+      <li><b>Leadership</b><span>Deputy Director, Advanced Research and Innovation Center (ARIC); KU Lead, SAMC–KU NDT Joint Lab</span></li>
+      <li><b>Lab</b><span>Founder, Transformative Aerospace Lab (2024): infrared thermography rigs, a robotic inspection cell and a blade sample library</span></li>
+      <li><b>Education</b><span>PhD in Interdisciplinary Engineering (2020) and MSc in Engineering Systems and Management (2016), Masdar Institute in collaboration with MIT; BSc in Engineering Management (2011), University of Arizona</span></li>
+      <li><b>Earlier</b><span>UAE National Postdoctoral Fellow, Khalifa University (2022–2023); Demand-Side Management Engineer, ADDC / TAQA (2019–2022)</span></li>
+      <li><b>Distinction</b><span>First Emirati woman to hold a faculty position in aerospace engineering in the UAE</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- 01 RESEARCH -->
+<section id="research">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-num">01</span>
+      <h2>A roadmap, then the work</h2>
+      <p>In 2023 we mapped what was stopping AI inspection from reaching the hangar. Since then, each project has tackled one of those problems.</p>
+    </div>
+
+    <div class="anchor">
+      <div>
+        <div class="big">Top 1%</div>
+        <p>of papers worldwide by field-weighted citation impact</p>
+      </div>
+      <div>
+        <h3>Aero-engine blade defect detection: a systematic review of deep learning models</h3>
+        <p>IEEE Access, 2023. A review of more than a hundred studies that organised the field by method, imaging modality and defect type, named the barriers to industrial use — scarce training data, the gap between simulation and reality, no shared benchmarks, and no deployed end-to-end systems — and set out the roadmap the group has followed since.</p>
+      </div>
+    </div>
+
+    <div class="roadmap">
+      <article class="paper">
+        <p class="prob">Problem: real, labelled images of damaged blades are almost impossible to collect at scale.</p>
+        <h4>BladeSynth</h4>
+        <p>A physics-based rendering pipeline that turns CAD blade models into realistic inspection images with synthetic defects and pixel-perfect labels. Models trained on it work on real blade images.</p>
+        <p class="links"><span class="muted">Scientific Data, 2025.</span> <a href="https://doi.org/10.1038/s41597-025-05563-y">Read paper ↗</a></p>
+        <div class="res"><div><b>Open</b><span>public dataset and pipeline</span></div><div><b>Used</b><span>to train our deployed system</span></div></div>
+      </article>
+
+      <article class="paper">
+        <p class="prob">Problem: no published system covered the whole job, from picking up a blade to reporting its defects.</p>
+        <h4>Robotic blade inspection</h4>
+        <p>A robot finds each blade in a container, picks it up, images it, runs deep-learning defect detection and puts it back, built for maintenance-shop workflows.</p>
+        <p class="links"><span class="muted">Scientific Reports, 2026.</span> <a href="https://doi.org/10.1038/s41598-026-57817-3">Read paper ↗</a></p>
+        <div class="res"><div><b>~4 s</b><span>per blade</span></div><div><b>88.2%</b><span>mean average precision</span></div><div><b>1,290</b><span>downloads in 3 months</span></div></div>
+      </article>
+
+      <article class="paper">
+        <p class="prob">Problem: thermography methods analyse each processed view of the heat signal on its own and miss what they show together.</p>
+        <h4>PT-Fusion</h4>
+        <p>A deep-learning model that fuses two standard pulse-thermography representations to find defects in composites and estimate how deep they are, with fewer parameters than leading transformer models.</p>
+        <p class="links"><span class="muted">Scientific Reports, 2026.</span> <a href="https://doi.org/10.1038/s41598-026-42031-y">Read paper ↗</a><a href="https://github.com/mohammedsalah98/pt_fusion">Code ↗</a></p>
+        <div class="res"><div><b>10%</b><span>more accurate than U-Net-style baselines</span></div><div><b>Open</b><span>code and trained models</span></div></div>
+      </article>
+
+      <article class="paper">
+        <p class="prob">Problem: regulators need tamper-proof inspection records, but AI results are probabilistic and hard to audit.</p>
+        <h4>BladeChain</h4>
+        <p>A blockchain network shared by manufacturer, airline, maintenance shop and regulator. Every inspection records which AI model and version made the call, and new inspections trigger automatically on flight hours or cycles.</p>
+        <p class="links"><span class="muted">Scientific Reports, 2026.</span> <a href="https://doi.org/10.1038/s41598-026-51744-z">Read paper ↗</a></p>
+        <div class="res"><div><b>100%</b><span>of lifecycle events captured</span></div><div><b>17 ms</b><span>to detect tampering</span></div></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 02 INDUSTRY -->
+<section id="industry" style="padding-top:1rem">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-num">02</span>
+      <h2>With industry</h2>
+      <p>Research shaped by partners' real problems, and tested on their shop floors.</p>
+    </div>
+
+    <div class="feature">
+      <div>
+        <h3>From the lab to the hangar</h3>
+        <p>With Sanad Aerotech, a Mubadala company, we built inspection systems for aero-engine blades and took them into a working maintenance shop.</p>
+        <ul class="ticks">
+          <li>Two prototypes, robotic blade sorting and automated chord measurement, soft-deployed at Sanad Aerotech</li>
+          <li>The automated chord measurement system was approved by Lufthansa Technik Middle East</li>
+          <li>Co-founder of Stride Robotic Technologies, a robotics start-up on the Khalifa Innovation Center seed track</li>
+        </ul>
+      </div>
+      <div class="readout" aria-label="Robotic blade inspection results">
+        <h4>AI visual defect detection, TRL 6</h4>
+        <div class="row"><strong>97.9%</strong><span>detection accuracy</span></div>
+        <div class="row"><strong>78 µm</strong><span>measurement precision</span></div>
+        <div class="row"><strong>35%</strong><span>shorter inspection cycle</span></div>
+      </div>
+    </div>
+
+    <div class="feature">
+      <div class="readout" aria-label="9th COMAC International Science and Technology Innovation Week">
+        <h4>9th COMAC International Science &amp; Technology Innovation Week, Shanghai, September 2026</h4>
+        <div class="row"><strong>1st</strong><span>Arab-region institution to co-organise, alongside COMAC and NUAA</span></div>
+      </div>
+      <div>
+        <h3>The first COMAC partnership in the Middle East</h3>
+        <p>I built and coordinate Khalifa University's collaboration with COMAC through Shanghai Aircraft Manufacturing Co. (SAMC): KU's first aerospace partnership with China and COMAC's first in the Arab region.</p>
+        <ul class="ticks">
+          <li>A joint SAMC–KU NDT Joint Lab at Khalifa University, which I lead</li>
+          <li>A sponsored programme in rapid damage detection for composite aircraft structures, now running</li>
+          <li>Three research directions agreed with SAMC: robotic visual and infrared inspection, inspection and remaining-life prediction around drilled holes, and trusted inspection data</li>
+          <li>A competitive call I organised that opened funded COMAC projects to three more KU research teams</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 class="sub">More partnerships</h3>
+    <div class="trio">
+      <div class="tile"><span class="tag">Smart farming · SILAL</span><h4>AI for the farm</h4><p>AgriDrone for crop yield and ripeness, a phone app that spots strawberry disease, an automated pollination device and a wearable sensor that feels fruit firmness.</p></div>
+      <div class="tile"><span class="tag">UAE–China</span><h4>Intelligent manufacturing lab</h4><p>KU lead on the UAE–China Joint Research Laboratory in Intelligent Manufacturing with Beijing Institute of Technology.</p></div>
+      <div class="tile"><span class="tag">Air Q</span><h4>Opening doors for colleagues</h4><p>As KU's coordinator for the Air Q aerospace partnership, I have enabled three research projects led by other KU faculty, from quiet quadcopters to cloud-seeding drones.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 TEACHING -->
+<section id="teaching" style="padding-top:1rem">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-num">03</span>
+      <h2>Teaching and mentoring</h2>
+      <p>Students learn best on real problems, with practising engineers in the room.</p>
+    </div>
+    <div class="trio">
+      <div class="tile"><span class="tag">New course</span><h4>AERO 495: NDT and failure analysis</h4><p>A senior elective, co-designed with Prof. Kin Liao, and the department's first course to pair NDT theory with hands-on work on industrial-class infrared thermography rigs.</p></div>
+      <div class="tile"><span class="tag">Senior design</span><h4>12 industry-linked project teams</h4><p>Capstone projects with Sanad Aerotech, Strata Manufacturing, The Exploration Company and Droneleaf, in inspection, robotics, drones and manufacturing.</p></div>
+      <div class="tile"><span class="tag">RISE</span><h4>Real Industry Scenarios and Experiences</h4><p>A programme I founded that pairs students and early-career women with senior industry mentors. It was cited in KU's Best Educational Institution in Aviation award, Women in Aviation Middle East, 2025.</p></div>
+    </div>
+    <p class="muted" style="margin-top:2rem">Two PhD students graduated in 2026, one under my primary supervision and one co-supervised. I also teach Research Methods in Engineering, Quality and Reliability Engineering, and Leadership and Professional Development.</p>
+
+    <h3 class="sub">Recognition</h3>
+    <ul class="list">
+      <li><span class="when">2025</span><p>Best Educational Institution in the Aviation Field, Women in Aviation Middle East. Accepted on behalf of Khalifa University.</p></li>
+      <li><span class="when">2025</span><p>Certificate of Appreciation as Local Chair, RoboCupJunior Rescue, RoboCup Asia-Pacific 2025, Abu Dhabi.</p></li>
+      <li><span class="when">2024</span><p>Best Team Award as Volunteers Committee Chair, IROS 2024 Organising Committee.</p></li>
+      <li><span class="when">2018, 2020</span><p>UAE Student Awards for the Advancement of Postgraduate Education, Ministry of Energy and Gulf Intelligence.</p></li>
+    </ul>
+  </div>
+</section>
+
+<!-- 04 NEXT -->
+<section id="next" style="padding-top:1rem">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-num">04</span>
+      <h2>What comes next</h2>
+      <p>From a single panel to a whole aircraft.</p>
+    </div>
+
+    <ol class="timeline">
+      <li><div class="yr">2026</div><span class="state">Phase I, running</span><h4>Surface damage, fast</h4><p>Rapid detection of operational damage in composite structures, fusing several data sources.</p></li>
+      <li><div class="yr">2027</div><span class="state">Phase II, approved</span><h4>Inside the structure</h4><p>Robotic infrared thermography for damage hidden below the surface.</p></li>
+      <li><div class="yr">2028</div><span class="state">Phase III, planned</span><h4>The whole aircraft</h4><p>Autonomous inspection at full-aircraft, hangar scale.</p></li>
+    </ol>
+
+    <div class="trio">
+      <div class="tile"><span class="tag">Research</span><h4>Closing the loop</h4><p>Taking blade inspection all the way from vision and robotic handling to certified use in maintenance, with BladeChain as the audit trail.</p></div>
+      <div class="tile"><span class="tag">Research</span><h4>Physics-informed data</h4><p>Building on BladeSynth to make synthetic training data that is calibrated against real physics.</p></div>
+      <div class="tile"><span class="tag">March 2027 · Singapore</span><h4>QIRT Asia 2027 short course</h4><p>An invited short course on thermography for composites and aerospace, and a planned graduate elective in AI for non-destructive evaluation.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PUBLICATIONS -->
+<section id="outputs" style="padding-top:1rem">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-num" aria-hidden="true">&#8599;</span>
+      <h2>Selected publications</h2>
+      <p>21 Q1 publications since 2023; h-index 14 (Google Scholar).</p>
+    </div>
+    <ul class="list">
+      <li><span class="when">2026</span><p>Deep learning enabled intelligent robotic system for aeroengine blade surface inspection. <span class="venue">Scientific Reports.</span> <a href="https://doi.org/10.1038/s41598-026-57817-3">Read ↗</a></p></li>
+      <li><span class="when">2026</span><p>Multi-representation thermal features for enhanced defect analysis in pulse thermography. <span class="venue">Scientific Reports.</span> <a href="https://doi.org/10.1038/s41598-026-42031-y">Read ↗</a></p></li>
+      <li><span class="when">2026</span><p>BladeChain: blockchain-based traceability system for AI-driven engine blade inspection. <span class="venue">Scientific Reports.</span> <a href="https://doi.org/10.1038/s41598-026-51744-z">Read ↗</a></p></li>
+      <li><span class="when">2026</span><p>RadioCore: few-shot industrial anomaly segmentation with multi-scale Radio ViT features. <span class="venue">IEEE/CVF CVPR 2026.</span></p></li>
+      <li><span class="when">2025</span><p>BladeSynth: a high-quality rendering-based synthetic dataset for aero-engine blade defect inspection. <span class="venue">Scientific Data.</span> <a href="https://doi.org/10.1038/s41597-025-05563-y">Read ↗</a></p></li>
+      <li><span class="when">2025</span><p>A multi-functional autonomous cobot system for large-scale aerospace precision machining. <span class="venue">Journal of Intelligent Manufacturing.</span></p></li>
+      <li><span class="when">2025</span><p>Anomaly detection for industrial applications: challenges, solutions, and future directions. <span class="venue">International Journal of Computer Integrated Manufacturing.</span></p></li>
+      <li><span class="when">2024</span><p>Multi-scale feature reconstruction network for industrial anomaly detection. <span class="venue">Knowledge-Based Systems.</span></p></li>
+      <li><span class="when">2024</span><p>Vision-guided robotic system for aero-engine inspection and dynamic balancing. <span class="venue">Scientific Reports.</span></p></li>
+      <li><span class="when">2023</span><p>Aero-engine blade defect detection: a systematic review of deep learning models. <span class="venue">IEEE Access.</span></p></li>
+      <li><span class="when">2023</span><p>AI and blockchain synergy in aerospace engineering: an impact survey on operational efficiency and technological challenges. <span class="venue">IEEE Access.</span></p></li>
+    </ul>
+  </div>
+</section>
+
+<!-- TALKS AND SERVICE -->
+<section id="talks" style="padding-top:1rem">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-num" aria-hidden="true">&#9673;</span>
+      <h2>Talks and service</h2>
+      <p>Keynotes, conferences and the research community.</p>
+    </div>
+    <ul class="list">
+      <li><span class="when">2026</span><p>Plenary keynote, 9th COMAC International Science &amp; Technology Innovation Week, Shanghai.</p></li>
+      <li><span class="when">2026</span><p>Steering Committee Member, QIRT Asia.</p></li>
+      <li><span class="when">2025</span><p>Invited speaker, COMAC Innovation Week and IEEE Far East NDT Forum, Wuhan; speaker, QIRT 2025, Harbin; invited panellist, ATRC Innovation Majlis on Emirati Women's Day.</p></li>
+      <li><span class="when">2024</span><p>Speaker, QIRT 2024, Zagreb; invited seminar, Hong Kong Polytechnic University; invited speaker, COMAC Innovation Week.</p></li>
+      <li><span class="when">2023</span><p>Organising Committee and session co-chair, QIRT Asia 2023, the first QIRT Asia held in the Middle East, hosted at Khalifa University.</p></li>
+      <li><span class="when">Ongoing</span><p>Reviewer for Journal of Manufacturing Systems, Expert Systems with Applications and Computers in Industry; academic member of the Aerospace Industrial Advisory Board.</p></li>
+    </ul>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="team" id="team">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-num" aria-hidden="true">&#9679;</span>
+      <h2>The team</h2>
+      <p>Transformative Aerospace Lab, Khalifa University.</p>
+    </div>
+    <div class="people">
+      <div class="person"><b>Dr. Yusra Abdulrahman</b><span>Principal Investigator</span></div>
+      <h4>Postdoctoral researchers</h4>
+      <div class="person"><b>Dr. Eman Ouda</b><span>Operational Lead; BladeChain</span></div>
+      <div class="person"><b>Dr. Yihao Dong</b><span>UAE–China intelligent manufacturing</span></div>
+      <div class="person"><b>Dr. Muhammad Humais</b><span>Aerospace</span></div>
+      <div class="person"><b>Dr. Muhammad Shafay</b><span>Smart farming</span></div>
+      <div class="person"><b>Dr. Fathy Alkhatib</b><span>ARIC</span></div>
+      <h4>PhD students</h4>
+      <div class="person"><b>Mohammed Salah</b><span>Infrared thermography; PT-Fusion</span></div>
+      <div class="person"><b>Abdelrahman Alzarooni</b><span>Industrial anomaly detection</span></div>
+      <div class="person"><b>Siyi Guo</b><span>PhD student</span></div>
+      <div class="person"><b>Omar Alsuwaidi</b><span>PhD student</span></div>
+      <div class="person"><b>Helal Alshamsi</b><span>PhD student (co-supervised)</span></div>
+      <h4>Graduated</h4>
+      <div class="person"><b>Dr. Mohammed Ahmed Ali</b><span>PhD 2026; BladeSynth, BladeChain</span></div>
+      <div class="person"><b>Dr. Oussama Abdul Hay</b><span>PhD 2026 (co-supervised); event-based pose estimation</span></div>
+    </div>
+    <p class="muted" style="margin-top:2rem">Undergraduates join the lab through Senior Design Projects and internships.</p>
+  </div>
+</section>
+</main>
+
+<footer id="contact">
+  <div class="wrap">
+    <h2>Let's inspect something together</h2>
+    <p style="opacity:.85">For research collaboration, industry partnerships or student opportunities, email <a href="mailto:yusra.abdulrahman@ku.ac.ae">yusra.abdulrahman@ku.ac.ae</a>.</p>
+    <div class="foot-row">
+      <span>Transformative Aerospace Lab, Khalifa University, Abu Dhabi</span>
+      <a href="#home" style="color:#fff">Back to top</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* Live thermal scan: a composite panel seen in visible light,
+   with a scan line revealing hidden defects in an ironbow palette. */
+(function(){
+  const cv=document.getElementById('scan'); if(!cv||!cv.getContext) return;
+  const ctx=cv.getContext('2d');
+  const W=192,H=108;
+  const off=document.createElement('canvas'); off.width=W; off.height=H;
+  const octx=off.getContext('2d'); const img=octx.createImageData(W,H);
+  const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const stops=[[0,[11,31,58]],[.28,[31,95,168]],[.5,[79,155,209]],[.72,[201,138,30]],[.88,[232,181,74]],[1,[255,244,214]]];
+  const lut=[];
+  for(let i=0;i<256;i++){const t=i/255;let k=0;while(k<stops.length-2&&t>stops[k+1][0])k++;
+    const [t0,c0]=stops[k],[t1,c1]=stops[k+1];const f=(t-t0)/(t1-t0);
+    lut.push(c0.map((v,j)=>Math.round(v+(c1[j]-v)*f)));}
+
+  const defects=[
+    {x:.62,y:.30,r:.07,a:.75,label:'Impact damage'},
+    {x:.80,y:.62,r:.10,a:.55,label:'Delamination'},
+    {x:.74,y:.84,r:.045,a:.6,label:'Disbond'},
+    {x:.90,y:.22,r:.05,a:.5,label:'Porosity'}
+  ];
+  const base=new Float32Array(W*H);
+  for(let y=0;y<H;y++)for(let x=0;x<W;x++){
+    const ply=.05*Math.sin((x+y)*.55)+.03*Math.sin((x-y)*.55);
+    const grad=.18+.1*(y/H)+.06*(x/W);
+    base[y*W+x]=grad+ply+(Math.random()-.5)*.03;
+  }
+
+  function size(){const r=window.devicePixelRatio||1;cv.width=cv.clientWidth*r;cv.height=cv.clientHeight*r;}
+  size(); window.addEventListener('resize',size);
+
+  const SWEEP=7000,HOLD=2600;
+  let start=performance.now();
+
+  function frame(now){
+    const t=now-start, cycle=SWEEP+HOLD;
+    const p=reduce?1:Math.min(1,(t%cycle)/SWEEP);
+    const scanX=p*W, pulse=.85+.15*Math.sin(now/600);
+    const d=img.data;
+    for(let y=0;y<H;y++)for(let x=0;x<W;x++){
+      const i=y*W+x,o=i*4;
+      if(x<scanX){
+        let v=base[i];
+        for(const q of defects){const dx=x/W-q.x,dy=(y/H-q.y)*H/W;
+          v+=q.a*pulse*Math.exp(-(dx*dx+dy*dy)/(2*q.r*q.r));}
+        const c=lut[Math.max(0,Math.min(255,Math.round(v*255)))];
+        d[o]=c[0];d[o+1]=c[1];d[o+2]=c[2];
+      }else{
+        const g=Math.round(40+base[i]*70);
+        d[o]=g-6;d[o+1]=g;d[o+2]=g+14;
+      }
+      d[o+3]=255;
+    }
+    octx.putImageData(img,0,0);
+    const cw=cv.width,ch=cv.height;
+    ctx.imageSmoothingEnabled=true;
+    // cover-fit the panel into the hero
+    const s=Math.max(cw/W,ch/H),dw=W*s,dh=H*s,ox=(cw-dw)/2,oy=(ch-dh)/2;
+    ctx.drawImage(off,ox,oy,dw,dh);
+
+    const r=window.devicePixelRatio||1;
+    if(p<1){
+      const sx=ox+scanX*s;
+      const g=ctx.createLinearGradient(sx-40*r,0,sx,0);
+      g.addColorStop(0,'rgba(232,181,74,0)');g.addColorStop(1,'rgba(232,181,74,.45)');
+      ctx.fillStyle=g;ctx.fillRect(sx-40*r,0,40*r,ch);
+      ctx.fillStyle='#fff6d5';ctx.fillRect(sx-1*r,0,2*r,ch);
+    }
+    ctx.font=`500 ${12*r}px "IBM Plex Sans",sans-serif`;
+    ctx.lineWidth=1.5*r;
+    for(const q of defects){
+      if(q.x*W>scanX) continue;
+      const cx=ox+q.x*dw,cy=oy+q.y*dh,b=q.r*dw*1.4,k=b*.3;
+      ctx.strokeStyle='rgba(255,246,213,.85)';
+      ctx.beginPath();
+      ctx.moveTo(cx-b,cy-b+k);ctx.lineTo(cx-b,cy-b);ctx.lineTo(cx-b+k,cy-b);
+      ctx.moveTo(cx+b-k,cy-b);ctx.lineTo(cx+b,cy-b);ctx.lineTo(cx+b,cy-b+k);
+      ctx.moveTo(cx+b,cy+b-k);ctx.lineTo(cx+b,cy+b);ctx.lineTo(cx+b-k,cy+b);
+      ctx.moveTo(cx-b+k,cy+b);ctx.lineTo(cx-b,cy+b);ctx.lineTo(cx-b,cy+b-k);
+      ctx.stroke();
+      ctx.fillStyle='rgba(255,246,213,.95)';
+      ctx.fillText(q.label,cx-b,cy-b-6*r);
+    }
+    if(!reduce) requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+  if(reduce) window.addEventListener('resize',()=>requestAnimationFrame(frame));
+})();
+</script>
+</body>
+</html>
