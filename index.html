@@ -180,7 +180,7 @@ footer a{color:var(--glow)}
 
 <header class="bar">
   <div class="bar-in">
-    <a class="brand" href="#home">Yusra Abdulrahman<small>Aerospace Engineering · Khalifa University</small></a>
+    <a class="brand" href="#home">Yusra Abdulrahman<small>Transformative Aerospace Lab · Khalifa University</small></a>
     <nav aria-label="Sections">
       <a href="#research">Research</a>
       <a href="#industry">Industry</a>
@@ -199,7 +199,7 @@ footer a{color:var(--glow)}
   <canvas id="scan" aria-hidden="true"></canvas>
   <div class="hero-copy">
     <h1>Seeing inside aircraft structures</h1>
-    <p class="lede">AI, robotics and infrared thermography that find hidden damage in aerospace parts, support smart industrial operations.</p>
+    <p class="lede">AI, robotics and infrared thermography that find hidden damage in aerospace parts, and keep a record regulators can trust.</p>
     <div class="hero-actions">
       <a class="btn" href="#research">See the work</a>
       <div class="legend" role="img" aria-label="Thermal colour scale from cold to hot"><span>Cold</span><i></i><span>Hot</span></div>
@@ -209,36 +209,271 @@ footer a{color:var(--glow)}
 </section>
 
 <!-- ABOUT -->
-<section id="about"><div class="wrap"><h2>About Dr. Yusra Abdulrahman</h2><p>Assistant Professor | Deputy Director, Aerospace Engineering, Khalifa University. Affiliated with the Advanced Research and Innovation Center (ARIC).</p><p>Her work with UAE aerospace companies dates to 2014 and focuses on automation, inspection and artificial intelligence.</p><h3>Education</h3><ul><li>PhD in Interdisciplinary Engineering, Masdar Institute of Science and Technology in collaboration with Massachusetts Institute of Technology (MIT).</li><li>MSc, Masdar Institute in collaboration with MIT.</li><li>BSc with honors, University of Arizona, USA.</li></ul></div></section>
+<section class="about" id="about">
+  <div class="wrap about-grid">
+    <div>
+      <p class="big">My group takes AI inspection out of the lab and into aircraft manufacturing and maintenance, from the camera to the robot to the certified record.</p><p class="muted">I have collaborated with aerospace companies in the UAE since 2014, developing automation and inspection approaches for efficient and sustainable aerospace operations.</p>
+      <p class="muted">The work runs across four connected threads: AI-enabled visual inspection, non-destructive testing with infrared thermography, robotic and smart industrial systems, and blockchain-based traceability for inspection data. Research interests also include immersive technologies (VR, MR and AR). Partners include Sanad Aerotech, COMAC, SILAL and Beijing Institute of Technology, and the same methods now reach into precision agriculture.</p>
+      <p class="muted">Our publications are cited 92% above the world average for the field (SciVal, 2022–2025), and the 2023 review that set our roadmap ranks in the top 1% worldwide by field-weighted citation impact.</p>
+    </div>
+    <ul class="facts">
+      <li><b>Position</b><span>Assistant Professor, Aerospace Engineering, Khalifa University, with a dual affiliation in Management Science and Engineering</span></li>
+      <li><b>Leadership</b><span>Deputy Director, Advanced Research and Innovation Center (ARIC); KU Lead, SAMC–KU NDT Joint Lab</span></li>
+      <li><b>Lab</b><span>Founder, Transformative Aerospace Lab (2024): infrared thermography rigs, a robotic inspection cell and a blade sample library</span></li>
+      <li><b>Education</b><span>PhD in Interdisciplinary Engineering (2020) and MSc in Engineering Systems and Management (2016), Masdar Institute in collaboration with MIT; BSc with honors in Engineering Management (2011), University of Arizona</span></li>
+      <li><b>Earlier</b><span>UAE National Postdoctoral Fellow, Khalifa University (2022–2023); Demand-Side Management Engineer, ADDC / TAQA (2019–2022)</span></li>
+      <li><b>Distinction</b><span>First Emirati woman to hold a faculty position in aerospace engineering in the UAE</span></li>
+    </ul>
+  </div>
+</section>
 
 <!-- 01 RESEARCH -->
-<section id="research"><div class="wrap"><h2>Research interests</h2><ul><li>Smart Industries</li><li>Inspection &amp; Nondestructive Testing</li><li>Infrared Thermography</li><li>Artificial Intelligence</li><li>Blockchain Technology</li><li>Immersive Technologies (VR, MR, AR)</li></ul></div></section>
+<section id="research">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-num">01</span>
+      <h2>A roadmap, then the work</h2>
+      <p>In 2023 we mapped what was stopping AI inspection from reaching the hangar. Since then, each project has tackled one of those problems.</p>
+    </div>
+
+    <div class="anchor">
+      <div>
+        <div class="big">Top 1%</div>
+        <p>of papers worldwide by field-weighted citation impact</p>
+      </div>
+      <div>
+        <h3>Aero-engine blade defect detection: a systematic review of deep learning models</h3>
+        <p>IEEE Access, 2023. A review of more than a hundred studies that organised the field by method, imaging modality and defect type, named the barriers to industrial use — scarce training data, the gap between simulation and reality, no shared benchmarks, and no deployed end-to-end systems — and set out the roadmap the group has followed since.</p>
+      </div>
+    </div>
+
+    <div class="roadmap">
+      <article class="paper">
+        <p class="prob">Problem: real, labelled images of damaged blades are almost impossible to collect at scale.</p>
+        <h4>BladeSynth</h4>
+        <p>A physics-based rendering pipeline that turns CAD blade models into realistic inspection images with synthetic defects and pixel-perfect labels. Models trained on it work on real blade images.</p>
+        <p class="links"><span class="muted">Scientific Data, 2025.</span> <a href="https://doi.org/10.1038/s41597-025-05563-y">Read paper ↗</a></p>
+        <div class="res"><div><b>Open</b><span>public dataset and pipeline</span></div><div><b>Used</b><span>to train our deployed system</span></div></div>
+      </article>
+
+      <article class="paper">
+        <p class="prob">Problem: no published system covered the whole job, from picking up a blade to reporting its defects.</p>
+        <h4>Robotic blade inspection</h4>
+        <p>A robot finds each blade in a container, picks it up, images it, runs deep-learning defect detection and puts it back, built for maintenance-shop workflows.</p>
+        <p class="links"><span class="muted">Scientific Reports, 2026.</span> <a href="https://doi.org/10.1038/s41598-026-57817-3">Read paper ↗</a></p>
+        <div class="res"><div><b>~4 s</b><span>per blade</span></div><div><b>88.2%</b><span>mean average precision</span></div><div><b>1,290</b><span>downloads in 3 months</span></div></div>
+      </article>
+
+      <article class="paper">
+        <p class="prob">Problem: thermography methods analyse each processed view of the heat signal on its own and miss what they show together.</p>
+        <h4>PT-Fusion</h4>
+        <p>A deep-learning model that fuses two standard pulse-thermography representations to find defects in composites and estimate how deep they are, with fewer parameters than leading transformer models.</p>
+        <p class="links"><span class="muted">Scientific Reports, 2026.</span> <a href="https://doi.org/10.1038/s41598-026-42031-y">Read paper ↗</a><a href="https://github.com/mohammedsalah98/pt_fusion">Code ↗</a></p>
+        <div class="res"><div><b>10%</b><span>more accurate than U-Net-style baselines</span></div><div><b>Open</b><span>code and trained models</span></div></div>
+      </article>
+
+      <article class="paper">
+        <p class="prob">Problem: regulators need tamper-proof inspection records, but AI results are probabilistic and hard to audit.</p>
+        <h4>BladeChain</h4>
+        <p>A blockchain network shared by manufacturer, airline, maintenance shop and regulator. Every inspection records which AI model and version made the call, and new inspections trigger automatically on flight hours or cycles.</p>
+        <p class="links"><span class="muted">Scientific Reports, 2026.</span> <a href="https://doi.org/10.1038/s41598-026-51744-z">Read paper ↗</a></p>
+        <div class="res"><div><b>100%</b><span>of lifecycle events captured</span></div><div><b>17 ms</b><span>to detect tampering</span></div></div>
+      </article>
+    </div>
+  </div>
+</section>
 
 <!-- 02 INDUSTRY -->
-<section id="industry"><div class="wrap"><h2>Research projects</h2><h3>Automated blade sorting</h3><p>Robotic handling, load-cell weighing and AI-based vision for aero-engine blade sorting and mass balance.</p><h3>Automated chord measurement</h3><p>A robotic arm and laser profiler measure blade chords through a ROS-based interface, developed with Lufthansa Technik and SANAD Aerotech.</p><h3>Aerospace engine blade inspection</h3><p>Deep learning combines synthetic and real datasets with robotic handling and image acquisition for autonomous surface inspection.</p><p>For these three projects, the university lists Dr. Abdulrahman as Principal Investigator, with SANAD Aerotech and Mubadala Aerospace Company sponsorship, January–December 2024.</p><h3>Infrared thermography for aerospace NDT</h3><p>Integration of infrared thermography and emerging technologies for nondestructive testing. KU internal funding.</p><h3>Plant AI and AerialYield</h3><p>Research in collaboration with Silal, supported by KU external funding.</p></div></section>
+<section id="industry" style="padding-top:1rem">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-num">02</span>
+      <h2>With industry</h2>
+      <p>Research shaped by partners' real problems, and tested on their shop floors.</p>
+    </div>
+
+    <div class="feature">
+      <div>
+        <h3>From the lab to the hangar</h3>
+        <p>With Sanad Aerotech, a Mubadala company, we built inspection systems for aero-engine blades and took them into a working maintenance shop.</p>
+        <ul class="ticks">
+          <li>Two prototypes, robotic blade sorting and automated chord measurement, soft-deployed at Sanad Aerotech</li>
+          <li>The automated chord measurement system was approved by Lufthansa Technik Middle East</li>
+          <li>Co-founder of Stride Robotic Technologies, a robotics start-up on the Khalifa Innovation Center seed track</li>
+        </ul>
+      </div>
+      <div class="readout" aria-label="Robotic blade inspection results">
+        <h4>AI visual defect detection, TRL 6</h4>
+        <div class="row"><strong>97.9%</strong><span>detection accuracy</span></div>
+        <div class="row"><strong>78 µm</strong><span>measurement precision</span></div>
+        <div class="row"><strong>35%</strong><span>shorter inspection cycle</span></div>
+      </div>
+    </div>
+
+    <div class="feature">
+      <div class="readout" aria-label="9th COMAC International Science and Technology Innovation Week">
+        <h4>9th COMAC International Science &amp; Technology Innovation Week, Shanghai, September 2026</h4>
+        <div class="row"><strong>1st</strong><span>Arab-region institution to co-organise, alongside COMAC and NUAA</span></div>
+      </div>
+      <div>
+        <h3>The first COMAC partnership in the Middle East</h3>
+        <p>I built and coordinate Khalifa University's collaboration with COMAC through Shanghai Aircraft Manufacturing Co. (SAMC): KU's first aerospace partnership with China and COMAC's first in the Arab region.</p>
+        <ul class="ticks">
+          <li>A joint SAMC–KU NDT Joint Lab at Khalifa University, which I lead</li>
+          <li>A sponsored programme in rapid damage detection for composite aircraft structures, now running</li>
+          <li>Three research directions agreed with SAMC: robotic visual and infrared inspection, inspection and remaining-life prediction around drilled holes, and trusted inspection data</li>
+          <li>A competitive call I organised that opened funded COMAC projects to three more KU research teams</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="muted">The university profile lists three SANAD Aerotech and Mubadala Aerospace Company projects for January–December 2024, with Dr. Abdulrahman as Principal Investigator: automated blade sorting, automated chord measurement and aerospace engine blade inspection. The blade sorting system combines a robotic arm, load cell, AI vision and a sorting algorithm; chord measurement uses a robotic arm, laser profiler and ROS interface; surface inspection combines synthetic and real training data with autonomous robotic image acquisition. An additional internally funded KU project integrates infrared thermography and emerging technologies for aerospace NDT.</p><h3 class="sub">More partnerships</h3>
+    <div class="trio">
+      <div class="tile"><span class="tag">Smart farming · SILAL</span><h4>AI for the farm</h4><p>Plant AI and AerialYield are university-listed projects in collaboration with Silal, supported by external funding. Related work includes AgriDrone for crop yield and ripeness, a phone app that spots strawberry disease, an automated pollination device and a wearable sensor that feels fruit firmness.</p></div>
+      <div class="tile"><span class="tag">UAE–China</span><h4>Intelligent manufacturing lab</h4><p>KU lead on the UAE–China Joint Research Laboratory in Intelligent Manufacturing with Beijing Institute of Technology.</p></div>
+      <div class="tile"><span class="tag">Air Q</span><h4>Opening doors for colleagues</h4><p>As KU's coordinator for the Air Q aerospace partnership, I have enabled three research projects led by other KU faculty, from quiet quadcopters to cloud-seeding drones.</p></div>
+    </div>
+  </div>
+</section>
 
 <!-- 03 TEACHING -->
-<section id="teaching"><div class="wrap"><h2>Teaching</h2><ul><li>Quality Control &amp; Reliability (ISYE311)</li><li>Research Methods in HSE (ENGR701)</li><li>Senior Design Project 2 (AERO498)</li><li>Senior Design Project I (AERO497)</li><li>Special Topics in AERO (AERO395)</li><li>Nondestructive Testing and Failure Analysis of Aerospace Structures</li></ul></div></section>
+<section id="teaching" style="padding-top:1rem">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-num">03</span>
+      <h2>Teaching and mentoring</h2>
+      <p>Students learn best on real problems, with practising engineers in the room.</p>
+    </div>
+    <div class="trio">
+      <div class="tile"><span class="tag">New course</span><h4>NDT and failure analysis of aerospace structures</h4><p>A senior elective, co-designed with Prof. Kin Liao, and the department's first course to pair NDT theory with hands-on work on industrial-class infrared thermography rigs.</p></div>
+      <div class="tile"><span class="tag">Senior design</span><h4>12 industry-linked project teams</h4><p>Capstone projects with Sanad Aerotech, Strata Manufacturing, The Exploration Company and Droneleaf, in inspection, robotics, drones and manufacturing.</p></div>
+      <div class="tile"><span class="tag">RISE</span><h4>Real Industry Scenarios and Experiences</h4><p>A programme I founded that pairs students and early-career women with senior industry mentors. It was cited in KU's Best Educational Institution in Aviation award, Women in Aviation Middle East, 2025.</p></div>
+    </div>
+    <p class="muted" style="margin-top:2rem">Two PhD students graduated in 2026, one under my primary supervision and one co-supervised. I also teach Research Methods in Engineering, Quality and Reliability Engineering, and Leadership and Professional Development. The university profile lists Quality Control &amp; Reliability (ISYE311), Research Methods in HSE (ENGR701), Senior Design Project I (AERO497), Senior Design Project 2 (AERO498), Special Topics in AERO (AERO395), and Nondestructive Testing and Failure Analysis of Aerospace Structures.</p>
+
+    <h3 class="sub">Recognition</h3>
+    <ul class="list">
+      <li><span class="when">2025</span><p>Best Educational Institution in the Aviation Field, Women in Aviation Middle East. Accepted on behalf of Khalifa University.</p></li>
+      <li><span class="when">2025</span><p>Certificate of Appreciation as Local Chair, RoboCupJunior Rescue, RoboCup Asia-Pacific 2025, Abu Dhabi.</p></li>
+      <li><span class="when">2024</span><p>Best Team Award as Volunteers Committee Chair, IROS 2024 Organising Committee.</p></li>
+      <li><span class="when">2018, 2020</span><p>UAE Student Awards for the Advancement of Postgraduate Education, Ministry of Energy and Gulf Intelligence.</p></li>
+    </ul>
+  </div>
+</section>
 
 <!-- 04 NEXT -->
-<section id="next"><div class="wrap"><h2>Research opportunities</h2><p>Students and researchers interested in these research areas are welcome to email yusra.abdulrahman@ku.ac.ae to explore collaboration.</p></div></section>
+<section id="next" style="padding-top:1rem">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-num">04</span>
+      <h2>What comes next</h2>
+      <p>From a single panel to a whole aircraft.</p>
+    </div>
+
+    <ol class="timeline">
+      <li><div class="yr">2026</div><span class="state">Phase I, running</span><h4>Surface damage, fast</h4><p>Rapid detection of operational damage in composite structures, fusing several data sources.</p></li>
+      <li><div class="yr">2027</div><span class="state">Phase II, approved</span><h4>Inside the structure</h4><p>Robotic infrared thermography for damage hidden below the surface.</p></li>
+      <li><div class="yr">2028</div><span class="state">Phase III, planned</span><h4>The whole aircraft</h4><p>Autonomous inspection at full-aircraft, hangar scale.</p></li>
+    </ol>
+
+    <div class="trio">
+      <div class="tile"><span class="tag">Research</span><h4>Closing the loop</h4><p>Taking blade inspection all the way from vision and robotic handling to certified use in maintenance, with BladeChain as the audit trail.</p></div>
+      <div class="tile"><span class="tag">Research</span><h4>Physics-informed data</h4><p>Building on BladeSynth to make synthetic training data that is calibrated against real physics.</p></div>
+      <div class="tile"><span class="tag">March 2027 · Singapore</span><h4>QIRT Asia 2027 short course</h4><p>An invited short course on thermography for composites and aerospace, and a planned graduate elective in AI for non-destructive evaluation.</p></div>
+    </div>
+  </div>
+</section>
 
 <!-- PUBLICATIONS -->
-<section id="outputs"><div class="wrap"><h2>Publications</h2><p>Find Google Scholar and Scopus profiles through the <a href="https://www.ku.ac.ae/college-people/yusra-abdulrahman">official university profile</a>.</p></div></section>
+<section id="outputs" style="padding-top:1rem">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-num" aria-hidden="true">&#8599;</span>
+      <h2>Selected publications</h2>
+      <p>21 Q1 publications since 2023; h-index 14 (Google Scholar).</p>
+    </div>
+    <ul class="list">
+      <li><span class="when">2026</span><p>Deep learning enabled intelligent robotic system for aeroengine blade surface inspection. <span class="venue">Scientific Reports.</span> <a href="https://doi.org/10.1038/s41598-026-57817-3">Read ↗</a></p></li>
+      <li><span class="when">2026</span><p>Multi-representation thermal features for enhanced defect analysis in pulse thermography. <span class="venue">Scientific Reports.</span> <a href="https://doi.org/10.1038/s41598-026-42031-y">Read ↗</a></p></li>
+      <li><span class="when">2026</span><p>BladeChain: blockchain-based traceability system for AI-driven engine blade inspection. <span class="venue">Scientific Reports.</span> <a href="https://doi.org/10.1038/s41598-026-51744-z">Read ↗</a></p></li>
+      <li><span class="when">2026</span><p>RadioCore: few-shot industrial anomaly segmentation with multi-scale Radio ViT features. <span class="venue">IEEE/CVF CVPR 2026.</span></p></li>
+      <li><span class="when">2025</span><p>BladeSynth: a high-quality rendering-based synthetic dataset for aero-engine blade defect inspection. <span class="venue">Scientific Data.</span> <a href="https://doi.org/10.1038/s41597-025-05563-y">Read ↗</a></p></li>
+      <li><span class="when">2025</span><p>A multi-functional autonomous cobot system for large-scale aerospace precision machining. <span class="venue">Journal of Intelligent Manufacturing.</span></p></li>
+      <li><span class="when">2025</span><p>Anomaly detection for industrial applications: challenges, solutions, and future directions. <span class="venue">International Journal of Computer Integrated Manufacturing.</span></p></li>
+      <li><span class="when">2024</span><p>Multi-scale feature reconstruction network for industrial anomaly detection. <span class="venue">Knowledge-Based Systems.</span></p></li>
+      <li><span class="when">2024</span><p>Vision-guided robotic system for aero-engine inspection and dynamic balancing. <span class="venue">Scientific Reports.</span></p></li>
+      <li><span class="when">2023</span><p>Aero-engine blade defect detection: a systematic review of deep learning models. <span class="venue">IEEE Access.</span></p></li>
+      <li><span class="when">2023</span><p>AI and blockchain synergy in aerospace engineering: an impact survey on operational efficiency and technological challenges. <span class="venue">IEEE Access.</span></p></li>
+    </ul>
+  </div>
+</section>
 
 <!-- TALKS AND SERVICE -->
-
+<section id="talks" style="padding-top:1rem">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-num" aria-hidden="true">&#9673;</span>
+      <h2>Talks and service</h2>
+      <p>Keynotes, conferences and the research community.</p>
+    </div>
+    <ul class="list">
+      <li><span class="when">2026</span><p>Plenary keynote, 9th COMAC International Science &amp; Technology Innovation Week, Shanghai.</p></li>
+      <li><span class="when">2026</span><p>Steering Committee Member, QIRT Asia.</p></li>
+      <li><span class="when">2025</span><p>Invited speaker, COMAC Innovation Week and IEEE Far East NDT Forum, Wuhan; speaker, QIRT 2025, Harbin; invited panellist, ATRC Innovation Majlis on Emirati Women's Day.</p></li>
+      <li><span class="when">2024</span><p>Speaker, QIRT 2024, Zagreb; invited seminar, Hong Kong Polytechnic University; invited speaker, COMAC Innovation Week.</p></li>
+      <li><span class="when">2023</span><p>Organising Committee and session co-chair, QIRT Asia 2023, the first QIRT Asia held in the Middle East, hosted at Khalifa University.</p></li>
+      <li><span class="when">Ongoing</span><p>Reviewer for Journal of Manufacturing Systems, Expert Systems with Applications and Computers in Industry; academic member of the Aerospace Industrial Advisory Board.</p></li>
+    </ul>
+  </div>
+</section>
 
 <!-- TEAM -->
-<section id="team"><div class="wrap"><h2>Research staff and graduate students</h2><h3>Staff</h3><ul><li>Ehtesham Iqbal — Research Associate</li><li>Abdelrahman Ahmed — Research Associate</li><li>Mahmoud Hafez — Research Assistant</li><li>Laith AbuAssi — Research Associate</li><li>Hussain Sajwani — Research Assistant</li><li>Eman Ouda — Post Doctoral Fellow</li><li>Pradeep George — Lab Engineer</li><li>Abdulla Hasan Ayyad — Program Manager</li><li>Afeefa Azam — Research Assistant</li><li>Iyyakutti Iyappan Ganapathi — Research Scientist</li><li>Muhammad Fahad Nasir — Research Associate</li><li>Muhammad Humais — Post Doctoral Fellow</li><li>Maya Anbar — Research Coordinator</li><li>Fathy Alkhatib — Post Doctoral Fellow</li><li>Muhammad Shafay — Post Doctoral Fellow</li><li>Yihao Dong — Post Doctoral Fellow</li></ul><h3>Students</h3><ul><li>Abdelrahman Khalid Alzarooni — PhD</li><li>Mohammed Walid Salah — PhD</li><li>Siyi Guo — PhD</li><li>Omar Ali Alsuwaidi — PhD</li><li>Mohammed Ahmed Mohammed Eltoum Mohammed Ali — Graduated, PhD</li></ul></div></section>
+<section class="team" id="team">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-num" aria-hidden="true">&#9679;</span>
+      <h2>The team</h2>
+      <p>Transformative Aerospace Lab, Khalifa University.</p>
+    </div>
+    <div class="people">
+      <div class="person"><b>Dr. Yusra Abdulrahman</b><span>Principal Investigator</span></div>
+      <h4>Postdoctoral researchers</h4>
+      <div class="person"><b>Dr. Eman Ouda</b><span>Operational Lead; BladeChain</span></div>
+      <div class="person"><b>Dr. Yihao Dong</b><span>UAE–China intelligent manufacturing</span></div>
+      <div class="person"><b>Dr. Muhammad Humais</b><span>Aerospace</span></div>
+      <div class="person"><b>Dr. Muhammad Shafay</b><span>Smart farming</span></div>
+      <div class="person"><b>Dr. Fathy Alkhatib</b><span>ARIC</span></div>
+      <h4>Research and professional staff</h4><div class="person"><b>Ehtesham Iqbal</b><span>Research Associate</span></div>
+<div class="person"><b>Abdelrahman Ahmed</b><span>Research Associate</span></div>
+<div class="person"><b>Mahmoud Hafez</b><span>Research Assistant</span></div>
+<div class="person"><b>Laith AbuAssi</b><span>Research Associate</span></div>
+<div class="person"><b>Hussain Sajwani</b><span>Research Assistant</span></div>
+<div class="person"><b>Pradeep George</b><span>Lab Engineer</span></div>
+<div class="person"><b>Abdulla Hasan Ayyad</b><span>Program Manager</span></div>
+<div class="person"><b>Afeefa Azam</b><span>Research Assistant</span></div>
+<div class="person"><b>Iyyakutti Iyappan Ganapathi</b><span>Research Scientist</span></div>
+<div class="person"><b>Muhammad Fahad Nasir</b><span>Research Associate</span></div>
+<div class="person"><b>Maya Anbar</b><span>Research Coordinator</span></div><h4>PhD students</h4>
+      <div class="person"><b>Mohammed Walid Salah</b><span>Infrared thermography; PT-Fusion</span></div>
+      <div class="person"><b>Abdelrahman Khalid Alzarooni</b><span>Industrial anomaly detection</span></div>
+      <div class="person"><b>Siyi Guo</b><span>PhD student</span></div>
+      <div class="person"><b>Omar Ali Alsuwaidi</b><span>PhD student</span></div>
+      <div class="person"><b>Helal Alshamsi</b><span>PhD student (co-supervised)</span></div>
+      <h4>Graduated</h4>
+      <div class="person"><b>Dr. Mohammed Ahmed Mohammed Eltoum Mohammed Ali</b><span>PhD 2026; BladeSynth, BladeChain</span></div>
+      <div class="person"><b>Dr. Oussama Abdul Hay</b><span>PhD 2026 (co-supervised); event-based pose estimation</span></div>
+    </div>
+    <p class="muted" style="margin-top:2rem">Undergraduates join the lab through Senior Design Projects and internships.</p>
+  </div>
+</section>
 </main>
 
 <footer id="contact">
   <div class="wrap">
     <h2>Let's inspect something together</h2>
     <p style="opacity:.85">For research collaboration, industry partnerships or student opportunities, email <a href="mailto:yusra.abdulrahman@ku.ac.ae">yusra.abdulrahman@ku.ac.ae</a>.</p>
-    <p>Telephone: <a href="tel:+97123125845">+971 2 312 5845</a></p><p>Updated 6 November 2026 from the <a href="https://www.ku.ac.ae/college-people/yusra-abdulrahman">official Khalifa University profile</a>.</p><div class="foot-row">
-      <span>Aerospace Engineering, Khalifa University, Abu Dhabi</span>
+    <p style="font-size:.88rem">Telephone: <a href="tel:+97123125845">+971 2 312 5845</a> · <a href="https://www.ku.ac.ae/college-people/yusra-abdulrahman">Official university profile</a></p><div class="foot-row">
+      <span>Transformative Aerospace Lab, Khalifa University, Abu Dhabi</span>
       <a href="#home" style="color:#fff">Back to top</a>
     </div>
   </div>
